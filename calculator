@@ -1,0 +1,132 @@
+import javax.swing.*;
+import java.awt.event.*;
+class Labell extends JFrame implements ActionListener
+{
+    double c;
+    JFrame f;
+    JButton b1;
+    JButton b2;
+    JButton b3;
+    JButton b4;
+    JButton b5;
+    JButton b6;
+    JButton b7;
+    JButton b8;JButton b9;JButton b10;
+    JButton b11;
+    JTextField tf1;
+    JTextField tf2;
+    JTextField tf3;
+    Labell()
+    {
+        tf1=new JTextField();
+        tf2=new JTextField();
+        tf3=new JTextField();
+        b1=new JButton("+");
+        b2=new JButton("-");
+        b3=new JButton("/");
+        b4=new JButton("%");
+        b5=new JButton("*");
+        b6=new JButton("sin");
+        b7=new JButton("cos");
+        b8=new JButton("tan");
+        b9=new JButton("cosec");
+        b10=new JButton("sec");
+        b11=new JButton("cot");
+        tf1.setBounds(100,100,280,60);
+        tf2.setBounds(100,200,280,60);
+        tf3.setBounds(100,300,280,60);
+        b1.setBounds(400,100,80,60);
+        b2.setBounds(400,200,80,60);
+        b3.setBounds(400,300,80,60);
+        b4.setBounds(400,400,80,60);
+        b5.setBounds(400,500,80,60);
+        b6.setBounds(100,400,80,60);
+        b7.setBounds(100,500,80,60);
+        b8.setBounds(200,400,80,60);
+        b9.setBounds(200,500,80,60);
+        b10.setBounds(300,400,80,60);
+        b11.setBounds(300,500,80,60);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        b10.addActionListener(this);
+        b11.addActionListener(this);
+        add(b1);
+        add(b2);
+        add(b3);add(b4);add(b5);add(b6);add(b7);add(b8);add(b9);add(b10);add(b11);
+        add(tf1);
+        add(tf2);
+        add(tf3);
+        setSize(1000,1000);
+        setLayout(null);
+        setVisible(true);
+    }
+    public void actionPerformed(ActionEvent e)
+    {
+        String ip=tf1.getText();
+        int a=Integer.parseInt(ip);
+        String ipp=tf2.getText();
+        int b=Integer.parseInt(ipp);
+        
+        if(e.getSource()==b1)
+        {
+            tf3.setText(String.valueOf(a+b));
+        }
+        else if(e.getSource()==b2)
+        {
+            tf3.setText(String.valueOf(a-b));
+        }
+        else if(e.getSource()==b3)
+        {
+            tf3.setText(String.valueOf(a/b));
+        }
+        else if(e.getSource()==b4)
+        {
+            tf3.setText(String.valueOf(a%b));
+        }
+        else if(e.getSource()==b5)
+        {
+            tf3.setText(String.valueOf(a*b));
+        }
+        else if(e.getSource()==b6)
+        {
+            c=Math.sin(a);
+            tf3.setText(String.valueOf(c));
+        }
+        else if(e.getSource()==b7)
+        {
+            c=Math.asin(a);
+            tf3.setText(String.valueOf(c));
+        }
+        else if(e.getSource()==b8)
+        {
+            c=Math.cos(a);
+            tf3.setText(String.valueOf(c));
+        }
+        else if(e.getSource()==b9)
+        {
+            c=Math.acos(a);
+            tf3.setText(String.valueOf(c));
+        }
+        else if(e.getSource()==b10)
+        {
+            c=Math.tan(a);
+            tf3.setText(String.valueOf(c));
+        }
+        else if(e.getSource()==b11)
+        {
+            c=Math.atan(a);
+            tf3.setText(String.valueOf(c));
+        }
+    }
+    public static void main(String[] args)
+    {
+    new Labell();
+    }
+}
