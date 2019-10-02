@@ -1,0 +1,158 @@
+import java.io.*;
+class node
+{
+int data;
+node next;
+int index;
+node()
+{
+    data=0;
+    next=null;
+}
+node(int p,int d)
+{ 
+data=d;
+index=p;
+next=null;
+}
+node(int d)
+{
+    data=d;
+}
+}
+class linkedlist
+{
+node head;
+boolean isempty()
+{
+    if(head==null)
+    return(true);
+    else
+    return(false);
+}
+void insert(int data)
+{
+node node= new node();
+node.data=data;
+node.next=null;
+if(head==null)
+{
+
+    head=node;
+}
+else{
+node n=head;
+while(n.next!=null)
+{
+    n=n.next;
+}
+n.next=node;
+}
+}
+void insertatstart(int data)
+{
+node node=new node(data);
+//node.data=data;
+node.next=head;
+head=node;
+}
+void insertat(int index, int d)
+{
+    if(index==0)
+    {
+
+       insertatstart(d); 
+    }
+    
+    
+  else{  
+int i;
+node n=head;
+for(i=0;i<index-1;i++)
+{
+
+  n=n.next; 
+  
+}
+node node=new node(index,d);
+
+  node.next=n.next;
+   n.next=node;
+
+  }
+}
+int size()
+{ 
+    int i=1;
+    node n =head;
+    while(n.next !=null)
+    {
+        n=n.next;
+        i++;
+    }
+    return i;
+}
+int get(int i)
+{
+    node n =head;
+for(int j=0;j<i;j++)
+{
+    n=n.next;
+}
+return n.data;
+}
+void show()
+{
+    node node=head;
+    while(node!=null)
+    {
+        System.out.println(node.data);
+        node=node.next;
+    }
+}
+void delete(int index)
+{
+if(index==0)
+{
+
+head=head.next;
+
+}
+else
+
+{
+    int i;
+    node n=head;
+for(i=0;i<index-1;i++)
+{
+n=n.next;
+}
+n.next=n.next.next;
+
+}
+
+}
+}
+
+
+class A
+{
+public static void main(String[] args)
+{
+linkedlist list=new linkedlist();
+list.isempty();
+list.insert(5);
+list.insert(13);
+list.insert(15);
+list.insertatstart(23);
+list.insertat(2,12);
+list.isempty();
+list.show();
+
+list.delete(3);
+list.show(); 
+System.out.println("the size is "+list.size());
+System.out.println(list.get(2));
+
+}
+}
